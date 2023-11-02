@@ -9,21 +9,20 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
 public class UsersController {
     private final UsersService usersService;
 
-    @GetMapping
+    @GetMapping("/users")
     public List<UsersDTO> findAllUsers() {
         return usersService.findAllUsers();
     }
 
-    @PostMapping
+    @PostMapping("/fillUsersTableFromJSON")
     public void fillUsersTableFromJSON(@RequestBody List<UsersDTO> users) {
         usersService.fillUsersTable(users);
     }
 
-    @GetMapping("/fill")
+    @GetMapping("/fillUsersTableFromFile")
     public void fillUsersTableFromFile() {
         usersService.fillUsersTableFromFile();
     }
