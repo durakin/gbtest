@@ -9,15 +9,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/users")
 public class UsersController {
     private final UsersService usersService;
 
-    @GetMapping("/users")
+    @GetMapping
     public List<UsersDTO> findAllUsers() {
         return usersService.findAllUsers();
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public void fillUsersTableFromJSON(@RequestBody List<UsersDTO> users) {
         usersService.fillUsersTable(users);
     }

@@ -7,7 +7,7 @@ import com.github.durakin.gbtest.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +39,7 @@ public class UsersService {
         List<UsersDTO> parsed;
         try {
             parsed = CsvUtil.parseCsvToUsers(filename);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return parsed;
