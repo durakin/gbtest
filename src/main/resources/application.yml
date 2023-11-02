@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gbtest
+    username: postgres
+    password: postgres
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
